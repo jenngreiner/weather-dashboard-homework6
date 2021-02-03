@@ -6,8 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" href="./Assets/css/style.css">
     <script src="./Assets/js/script.js"></script>
+
     <title>Weather Dashboard</title>
 </head>
 
@@ -18,41 +20,44 @@
     </header>
     <div class="container">
 
-    <div class="row">
-        <div class="col-md-3">
-            <!-- search column -->
-            Search for a City:<br>
-            <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Denver, CO..." aria-label="Recipient's username" aria-describedby="button-addon2">
-                <button class="btn btn-primary" type="button" id="button-addon2">Search</button>
-              </div>
-                
-        </div>
-        <div class="col-md-9">
-            <!-- weather column-->
-            <div class="row">
-                <div class="col-12">
-                    <!-- today's weather -->
-                    <h2> City (mm/dd/yyyy)</h2> <!-- weather icon -->
-                    <!-- create div class = weather-stat in js-->
+        <div class="row">
+            <div class="col-md-3">
+                <!-- search column -->
+                Search for a City:<br>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" placeholder="Denver, CO..."
+                        aria-label="Recipient's username" aria-describedby="button-addon2" id="search-input">
+                    <button class="btn btn-primary" type="button" id="search-button">Search</button>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-12 box">
-                    <!-- 5-day forcast -->
-                    <div class="row">
-                        <div class="col five-day">day</div>
-                        <div class="col five-day">day</div>
-                        <div class="col five-day">day</div>
-                        <div class="col five-day">day</div>
-                        <div class="col five-day">day</div>
-                      </div>
+                <ul class="city-list">
+                </ul>
 
+            </div>
+            <div class="col-md-9">
+                <!-- weather column-->
+                <div class="row">
+                    <div class="col-12">
+                        <!-- today's weather -->
+                        <h2> City (mm/dd/yyyy)</h2> <!-- weather icon -->
+                        <!-- create div class = weather-stat in js-->
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 box">
+                        <!-- 5-day forcast -->
+                        <div class="row">
+                            <div class="col five-day">day</div>
+                            <div class="col five-day">day</div>
+                            <div class="col five-day">day</div>
+                            <div class="col five-day">day</div>
+                            <div class="col five-day">day</div>
+                        </div>
+
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
 
 </body>

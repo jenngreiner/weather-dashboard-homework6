@@ -1,22 +1,61 @@
-# 06 Server-Side APIs: Weather Dashboard
+# Server-Side APIs: Weather Dashboard | Jenn Greiner
 
-## Your Task
+### Table of Contents:
+* [Deployed Site](#deployed-site)
+* [User Story](#user-story)
+* [Description](#description)
+* [Usage](#Usage)
+* [Mock-Up](#Mock-Up)
 
-Third-party APIs allow developers to access their data and functionality by making requests with specific parameters to a URL. Developers are often tasked with retrieving data from another application's API and using it in the context of their own. Your challenge is to build a weather dashboard that will run in the browser and feature dynamically updated HTML and CSS.
+## Deployed Site
+[Production Link](https://jenngreiner.github.io/)
 
-Use the [OpenWeather API](https://openweathermap.org/api) to retrieve weather data for cities. The documentation includes a section called "How to start" that provides basic setup and usage instructions. You will use `localStorage` to store any persistent data.
 
 ## User Story
+As a traveler, I want to see the weather outlook for multiple cities so that I can plan a trip accordingly.
 
-```
-AS A traveler
-I WANT to see the weather outlook for multiple cities
-SO THAT I can plan a trip accordingly
-```
+## Description 
+Use the [OpenWeather API](https://openweathermap.org/api) to retrieve weather data for cities. The documentation includes a section called "How to start" that provides basic setup and usage instructions. You will use `localStorage` to store any persistent data.
+
+## Usage
+Open the [Work Day Scheduler](https://jenngreiner.github.io/Work-Day-Scheduler-homework5/) in your browser. The current date and time is displayed at the top of the screen. Click on a text area for any given hour and enter a task, then click 'Save' for that hour slot. The color of the time lock will change as the day proceeds; past hours will be grey, the current hour will be red, and future hours will be green. 
+
+## Mock-Up
+
+The following image shows the work day scheduler's appearance and functionality:
+
+![The weather app includes a search option, a list of cities, and a five-day forecast and current weather conditions for Atlanta.](./Assets/06-server-side-apis-homework-demo.png)
+
+
+## Installation
+This application will run in any web browser.
+​
+
+## Contributors
+
+​
+## Database Information 
+​
+Our information was gathered from Denver historical sites as well as Wikipedia. A link for all our information is below:
+​
+[GoogleDoc](https://docs.google.com/document/d/1mVBUclGq9G25-d3uPH-QxhdmS5a0nWbW60CAPKn2QRQ/edit)
+​
+
+
+## Credits
+* [W3 Schools](https://www.w3schools.com/)
+* [OpenWeather API](https://openweathermap.org/api)
+* [MDN Web Docs](https://developer.mozilla.org/)
+* [Bootstrap](https://getbootstrap.com/)
+
+## License
+
+- - -
+
+
 
 ## Acceptance Criteria
 
-```
 GIVEN a weather dashboard with form inputs
 WHEN I search for a city
 THEN I am presented with current and future conditions for that city and that city is added to the search history
@@ -28,13 +67,12 @@ WHEN I view future weather conditions for that city
 THEN I am presented with a 5-day forecast that displays the date, an icon representation of weather conditions, the temperature, and the humidity
 WHEN I click on a city in the search history
 THEN I am again presented with current and future conditions for that city
-```
+
 
 ## Mock-Up
 
 The following image shows the web application's appearance and functionality:
 
-![The weather app includes a search option, a list of cities, and a five-day forecast and current weather conditions for Atlanta.](./Assets/06-server-side-apis-homework-demo.png)
 
 ## Grading Requirements
 
