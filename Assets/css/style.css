@@ -11,8 +11,14 @@ h1 {
 svg {
     color:white;
 }
+.container {
+    padding: 0px;
+}
 .five-day {
     background-color: blue;
     color: white;
     margin: 10px
+}
+h5 {
+    padding-top: 10px;
 }

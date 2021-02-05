@@ -38,19 +38,52 @@
                 <div class="row">
                     <div class="col-12">
                         <!-- today's weather -->
-                        <h2> City (mm/dd/yyyy)</h2> <!-- weather icon -->
+                        <span>
+                            <h2 id="city-name"></h2><img id="current-icon">
+                        </span>
+                        <!-- <h2><span id="city-name"></span> <span></h2>weather icon</span> -->
                         <!-- create div class = weather-stat in js-->
+                        <p>Temperature: <span id="temperature"></span></p>
+                        <p>Humidity: <span id="humidity"></span></p>
+                        <p>Wind Speed: <span id="wind-speed"></span></p>
+                        <p>UV Index: <span id="uv-index"></span></p>
+
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-12 box">
                         <!-- 5-day forcast -->
                         <div class="row">
-                            <div class="col five-day">day</div>
-                            <div class="col five-day">day</div>
-                            <div class="col five-day">day</div>
-                            <div class="col five-day">day</div>
-                            <div class="col five-day">day</div>
+                            <div class="col five-day">
+                                <h5 id="forecast-date"></h5>
+                                <div><img id="forecast-icon"></div>
+                                <p>Temp: <span id="forecast-temp"></span></p>
+                                <p>Humidity: <span id="forecast-humidity"></span></p>
+                            </div>
+                            <div class="col five-day">
+                                <h5 id="forecast-date2"></h5>
+                                <div><img id="forecast-icon2"></div>
+                                <p>Temp: <span id="forecast-temp2"></span></p>
+                                <p>Humidity: <span id="forecast-humidity2"></span></p>
+                            </div>
+                            <div class="col five-day">
+                                <h5 id="forecast-date3"></h5>
+                                <div><img id="forecast-icon3"></div>
+                                <p>Temp: <span id="forecast-temp3"></span></p>
+                                <p>Humidity: <span id="forecast-humidity3"></span></p>
+                            </div>
+                            <div class="col five-day">
+                                <h5 id="forecast-date4"></h5>
+                                <div><img id="forecast-icon4"></div>
+                                <p>Temp: <span id="forecast-temp4"></span></p>
+                                <p>Humidity: <span id="forecast-humidity4"></span></p>
+                            </div>
+                            <div class="col five-day">
+                                <h5 id="forecast-date5"></h5>
+                                <div><img id="forecast-icon5"></div>
+                                <p>Temp: <span id="forecast-temp5"></span></p>
+                                <p>Humidity: <span id="forecast-humidity5"></span></p>
+                            </div>
                         </div>
 
                     </div>
@@ -58,6 +91,7 @@
             </div>
         </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 
 
 </body>
