@@ -1,8 +1,7 @@
 
 var searchBtn = document.getElementById('search-button');
-var cityName = 'santa fe';
-var searchList = document.querySelector('ul');
-// var cityName = document.getElementById('city-search');
+var cityName = 'denver';
+// var cityName = document.getElementById('search-input');
 // console.log(cityName);
 var cityURL = 'https://api.openweathermap.org/data/2.5/forecast?q=' + cityName + '&units=imperial&appid=49007e1734cfd0ecf0b4c3ad67f3f238';
 var todaysDate = '';
@@ -14,35 +13,10 @@ var currentWindSpeed = '';
 
 
 // page opens to last searched city
-getWeather(cityName);
-// get local storage when page loads
-
-// fetch from openweather API
-function getWeather(cityName) {
-  fetch(cityURL)
-    .then(response => response.json())
-    .then(data => {
-      console.log(data);
-      // save lat and long variables
-
-      var lat = data.city.coord.lat;
-      var lon = data.city.coord.lon;
-      fetch('https://api.openweathermap.org/data/2.5/onecall?lat=' + lat + '&lon=' + lon + '&appid=49007e1734cfd0ecf0b4c3ad67f3f238')
-        .then(response => response.json())
-        .then(uvData => {
-          console.log(uvData);
-          console.log(uvData.daily[0].uvi);
-          if (data) {
-            displayCurrent(data, uvData);
-            displayForecast(data);
-          }
-        })
-    })
-}
 // getCity()
 
 
-function displayCurrent(weatherData, uvData) {
+function displayCurrent(weatherData) {
   //City Name
   var cityName = weatherData.city.name;
   console.log(cityName);
@@ -61,22 +35,38 @@ function displayCurrent(weatherData, uvData) {
   // Wind Speed
   var currentWindSpeed = weatherData.list[0].wind.speed;
   document.getElementById('wind-speed').textContent = currentWindSpeed + ' MPH';
-  // uv index
-  var uvIndex = uvData.daily[0].uvi;
-  console.log('uvi value: ' + uvIndex);
-  if (uvIndex <= 2.99) {
-    $('#uv-index').addClass('low')
-  }
-  else if (uvIndex >= 3 && uvIndex <= 5.99) {
-    $('#uv-index').addClass('medium')
-  }
-  else {
-    $('#uv-index').addClass('high')
-  };
-  document.getElementById('uv-index').textContent = uvIndex;
+  // var uvIndex = uvData.daily[0].uvi;
+  // console.log('uvi value: ' + uvIndex);
+  // if (uvIndex <= 2) {
+  //   $('#uv-index').addClass('low')
+  // }
+  // else if (uvIndex >= 3 && uvIndex <= 5) {
+  //   $('#uv-index').addClass('medium')
+  // }
+  // else {
+  //   $('#uv-index').addClass('high')
+  // };
+  // document.getElementById('uv-index').textContent = uvIndex;
 }
 
-// display 5 day forecast
+// UV Index
+// var currentUVI = weatherData.daily[0].uvi;
+// console.log(currentUVI);
+// document.getElementById('wind-speed').textContent = currentWindSpeed + ' MPH';
+// console.log('Todays UV Index: ' + data.list[0].main.humidity)
+// if (uvIndex < 3) { uvIndex.addClass('low')} else if (2 < uvIndex < 6) {uvIndex.addClass('medium')} else {uvIndex.addClass('high')}
+// array for forecast days
+// var forecastDay = [0, 8, 16, 24, 36, 44];
+// forecastDay.forEach(forcastLoop);
+
+// function forcastLoop(weatherData) {
+//   var currentTemp = weatherData.list[0].main.temp;
+//   document.getElementById('forecast-temp').textContent = currentTemp + ' ºF';
+//   // Humidity
+//   var currentHumidity = weatherData.list[0].main.humidity;
+//   document.getElementById('forecast-humidity').textContent = currentHumidity + '%';
+// }
+
 function displayForecast(weatherData) {
 
   //day 1
@@ -146,33 +136,42 @@ function displayForecast(weatherData) {
 
 }
 
-// function startSearch() {
-//   searchHistory.push(cityName.value)
-//   localStorage.setItem('Search History', JSON.stringify(searchHistory));
-//   getWeather(cityName.value);
+// fetch from openweather API
+fetch(cityURL)
+  .then(response => response.json())
+  .then(data => {
+    console.log(data);
+    // save lat and long variables
+
+    var lat = data.city.coord.lat;
+    var lon = data.city.coord.lon;
+    fetch('https://api.openweathermap.org/data/2.5/onecall?lat=' + lat + '&lon=' + lon + '&appid=49007e1734cfd0ecf0b4c3ad67f3f238')
+      .then(response => response.json())
+      .then(uvData => {
+        console.log(uvData);
+        console.log(uvData.daily[0].uvi);
+      })
+
+    // // save current weather objects as an array
+    // var currentWeather = [cityName, todaysDate, iconURL, currentTemp, currentHumidity, currentWindSpeed];
+    // console.log(currentWeather);
+    // return currentWeather;
+    if (data) {
+      displayCurrent(data);
+      // forcastLoop(data);
+      displayForecast(data);
+    }
+  })
+
+
+//push objects to array
+// if (localStorage.getItem(currentWeather)) {
+//   lsCurrentWeather = JSON.parse(localStorage.getItem(currentWeather))
+//   // lsCurrentWeather = 
+//   localStorage.setItem('currentWeather', JSON.stringify(lsCurrentWeather))
 // }
 
-// function renderCityList() {
-//   // get info from local storage when the page loads
-//   for (var i = 0; i < searchHistory.length; i++) {
-//     var newCity = document.createElement('li');
-//     newCity.textContent = searchHistory[i];
-//     console.log(newCity.textContent);
-//     newCity.classList.add('cities');
-//     searchList.prepend(newCity);
-//     console.log(newCity);
-//     // add new city names to the top of the list when search button is clicked
-//   }
-// }
 
-// function getLocalStorage() {
-//   var searchHistory = JSON.parse(window.localStorage.getItem('Search History')) || [];
-//   if (searchHistory) {
-//     renderCityList()
-//   }
-// }
-// get localstorage to check if city already exists when you save a new city
-// if city doesnt exist, set it to localstorage, then get localstorage again to display on the page. 
 // saveBtn.on('click', function () {
 //   // var time = $(this).parent().attr('id');
 //   // var value = $(this).siblings('.task').val();
