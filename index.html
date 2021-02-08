@@ -9,7 +9,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="./Assets/css/style.css">
-    <script src="./Assets/js/script.js"></script>
 
     <title>Weather Dashboard</title>
 </head>
@@ -26,11 +25,8 @@
                 <!-- search column -->
                 Search for a City:<br>
                 <input id="search-input" type="text"></input>
-                <button id="searchEnter">Search</button>
-                <ul class="city-list">
-                    <li id="list-item ">Frederick</li>
-                    <li id="list-item ">St. Louis</li>
-                    <li id="list-item ">Santa Fe</li>
+                <button id="search-button">Search</button>
+                <ul class=" city-list">
                 </ul>
             </div>
             <div class="col-lg-9 col-md-12 col-sm-12">
@@ -41,8 +37,6 @@
                         <span>
                             <h2 id="city-name"></h2><img id="current-icon">
                         </span>
-                        <!-- <h2><span id="city-name"></span> <span></h2>weather icon</span> -->
-                        <!-- create div class = weather-stat in js-->
                         <p>Temperature: <span id="temperature"></span></p>
                         <p>Humidity: <span id="humidity"></span></p>
                         <p>Wind Speed: <span id="wind-speed"></span></p>
@@ -92,6 +86,7 @@
         </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="./Assets/js/script.js"></script>
 
 
 </body>

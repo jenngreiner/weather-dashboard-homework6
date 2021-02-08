@@ -6,19 +6,23 @@ var currentHumidity = '';
 var uvData = '';
 var currentWindSpeed = '';
 // search variables
-var searchEnter = document.getElementById("searchEnter");
+var searchButton = document.getElementById("search-button");
+console.log(searchButton);
 var searchList = document.querySelector('ul');
+var searchHistory = JSON.parse(window.localStorage.getItem('Search History')) || [];
+
 // city variables
-var cityName = 'denver';
-var cityURL = 'https://api.openweathermap.org/data/2.5/forecast?q=' + cityName + '&units=imperial&appid=49007e1734cfd0ecf0b4c3ad67f3f238';
-
-
+var cityName = 'Denver';
+// var cityName = document.getElementById('city-name');
 
 // page opens to last searched city
+
+// calls api for cityName 
 getWeather(cityName);
 
 // fetch from openweather API
 function getWeather(cityName) {
+  var cityURL = 'https://api.openweathermap.org/data/2.5/forecast?q=' + cityName + '&units=imperial&appid=49007e1734cfd0ecf0b4c3ad67f3f238';
   fetch(cityURL)
     .then(response => response.json())
     .then(data => {
@@ -35,8 +39,9 @@ function getWeather(cityName) {
           }
         })
     })
+    .finally(() => { renderCityList() });
 }
-// getCity()
+// display current weather
 function displayCurrent(weatherData, uvData) {
   //City Name
   var cityName = weatherData.city.name;
@@ -138,4 +143,55 @@ function displayForecast(weatherData) {
 
 }
 
+// send city name to local storage
+function startSearch() {
+  cityName = document.getElementById('search-input').value;
+  console.log(cityName);
+  searchHistory.push(cityName);
+  localStorage.setItem('Search History', JSON.stringify(searchHistory));
+  getWeather(cityName);
+  console.log('search started');
+}
+
+function renderCityList() {
+  // clear searchList before rendering new city
+  searchList.textContent = "";
+  // add new city names to the top of the city list
+  for (var i = 0; i < searchHistory.length; i++) {
+    var newCity = document.createElement('li');
+    newCity.textContent = searchHistory[i].toUpperCase();
+    searchList.prepend(newCity);
+  }
+}
+
+function getLocalStorage() {
+  // populate a local array
+  if (searchHistory.length > 0) {
+    renderCityList();
+  };
+}
+
+
+searchButton.addEventListener('click', startSearch)
+//Get new city on enter keystroke
+// var input = document.getElementById('search-input');
+// input.addEventListener("keyup", function (event) {
+//   // Number 13 is the "Enter" key on the keyboard
+//   if (event.keyCode === 13) {
+//     event.preventDefault();
+//     startSearch();
+//   }
+// });
+
+
+// show weather for city clicked in city list
+function clickCity(evt) {
+  // e.target refers to the clicked <li> element
+  // This is different than e.currentTarget, which would refer to the parent <ul> in this context
+  cityName = e.target.textContent;
+  getWeather(cityName);
+}
+
+var listItem = document.getElementById('list-item');
+listItem.addEventListener('click', clickCity, false);
 

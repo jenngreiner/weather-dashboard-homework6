@@ -43,6 +43,10 @@ ul li:last-child {
     color: white;
     margin: 10px
 }
+#forecast {
+    width: 992px;
+    overflow: auto;
+}
 h5 {
     padding-top: 10px;
 }
@@ -65,8 +69,4 @@ h5 {
     color: lightgray;
     border: #b30412 1px solid;
     border-radius: 5px;
-}
-
-.city-list {
-
 }
