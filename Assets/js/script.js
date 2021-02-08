@@ -7,7 +7,6 @@ var uvData = '';
 var currentWindSpeed = '';
 // search variables
 var searchButton = document.getElementById("search-button");
-console.log(searchButton);
 var searchList = document.querySelector('ul');
 var searchHistory = JSON.parse(window.localStorage.getItem('Search History')) || [];
 
@@ -146,7 +145,6 @@ function displayForecast(weatherData) {
 // send city name to local storage
 function startSearch() {
   cityName = document.getElementById('search-input').value;
-  console.log(cityName);
   searchHistory.push(cityName);
   localStorage.setItem('Search History', JSON.stringify(searchHistory));
   getWeather(cityName);
