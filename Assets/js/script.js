@@ -1,17 +1,17 @@
-
-var searchEnter = document.getElementById("searchEnter");
-// console.log(searchEnter);
-var cityName = 'frederick';
-var searchList = document.querySelector('ul');
-// var cityName = document.getElementById('input');
-// console.log(cityName);
-var cityURL = 'https://api.openweathermap.org/data/2.5/forecast?q=' + cityName + '&units=imperial&appid=49007e1734cfd0ecf0b4c3ad67f3f238';
+// display variables
 var todaysDate = '';
 var iconURL = '';
 var currentTemp = '';
 var currentHumidity = '';
 var uvData = '';
 var currentWindSpeed = '';
+// search variables
+var searchEnter = document.getElementById("searchEnter");
+var searchList = document.querySelector('ul');
+// city variables
+var cityName = 'denver';
+var cityURL = 'https://api.openweathermap.org/data/2.5/forecast?q=' + cityName + '&units=imperial&appid=49007e1734cfd0ecf0b4c3ad67f3f238';
+
 
 
 // page opens to last searched city
@@ -137,49 +137,5 @@ function displayForecast(weatherData) {
   document.getElementById('forecast-humidity5').textContent = currentHumidity5 + '%';
 
 }
-
-// function citySearch() {
-//   var citySearchValue = document.createElement("li");
-//   citySearchValue.textContent = cityName.toUpperCase();
-//   citySearchValue.classList.add(cityList);
-// }
-
-
-// function renderCityList() {
-//   // get info from local storage when the page loads
-//   for (var i = 0; i < searchHistory.length; i++) {
-//     var newCity = document.createElement('li');
-//     newCity.textContent = searchHistory[i];
-//     console.log(newCity.textContent);
-//     searchList.prepend(newCity);
-//     console.log(newCity);
-//     // add new city names to the top of the list when search button is clicked
-//     searchHistory.push(cityName.value)
-//     localStorage.setItem('Search History', JSON.stringify(searchHistory));
-//     getWeather(cityName.value);
-//   }
-// }
-// function getCity() {
-//   var cityList = document.querySelector('ul');
-//   var listItem = document.createElement('li');
-//   listItem.textContent = cityName.value;
-//   listItem.classList.add('list-item');
-//   cityList.appendChild(listItem);
-//   console.log(cityURL);
-// }
-
-// function getLocalStorage() {
-//   var searchHistory = JSON.parse(window.localStorage.getItem('Search History')) || [];
-//   if (searchHistory) {
-//     renderCityList()
-//   }
-// }
-// searchBtn.on('click', getCity())
-
-// get localstorage to check if city already exists when you save a new city
-// if city doesnt exist, set it to localstorage, then get localstorage again to display on the page. 
-// get localstorage, look for the object. 
-// if there is not object, create a new one
-// // if there is an object, JSONparse it to turn it back into an object
 
 
