@@ -1,5 +1,5 @@
 body {
-    font-family:Verdana, Geneva, Tahoma, sans-serif
+    font-family: 'Raleway', sans-serif;
 }
 h1 {
     text-align: center;
@@ -13,6 +13,7 @@ svg {
 }
 .container {
     padding: 0px;
+    margin: auto;
 }
 .five-day {
     background-color: blue;
@@ -41,4 +42,8 @@ h5 {
     color: lightgray;
     border: #b30412 1px solid;
     border-radius: 5px;
+}
+
+.city-list {
+
 }
