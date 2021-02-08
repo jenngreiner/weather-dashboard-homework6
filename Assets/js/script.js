@@ -150,7 +150,6 @@ function startSearch() {
   searchHistory.push(cityName);
   localStorage.setItem('Search History', JSON.stringify(searchHistory));
   getWeather(cityName);
-  console.log('search started');
 }
 
 function renderCityList() {
@@ -188,10 +187,9 @@ searchButton.addEventListener('click', startSearch)
 function clickCity(evt) {
   // e.target refers to the clicked <li> element
   // This is different than e.currentTarget, which would refer to the parent <ul> in this context
-  cityName = e.target.textContent;
+  cityName = evt.target.textContent;
   getWeather(cityName);
 }
 
-var listItem = document.getElementById('list-item');
-listItem.addEventListener('click', clickCity, false);
+searchList.addEventListener('click', clickCity, false);
 
